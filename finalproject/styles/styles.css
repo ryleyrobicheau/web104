@@ -1,0 +1,121 @@
+body {
+    background-image: url(../images/snow_mountains_cropped.png);
+    margin: auto;
+    padding: 0;
+
+}
+
+header {
+    background-color: #767A83;
+    padding: 0;
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+h1 {
+    padding: 0;
+    margin: 0;
+    color: #fff;
+}
+
+#input {
+    display: block;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.input-group.mb-3 {
+    width: 50%;
+    margin: auto;
+}
+
+#button-addon2.btn.btn-outline-secondary {
+    background-color: #767A83;
+    color: #fff;
+}
+
+.btn.btn-primary {
+    width: 75%;
+    margin: auto;
+    background-color: #767A83;
+    background-image: none;
+    margin-top: 1rem;
+}
+
+
+.btn-primary {
+    background-color: #767A83;
+}
+
+.btn {
+    background-color: #767A83;
+}
+
+label {
+    display: block;
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+    color: #fff;
+    font-size: 2rem;
+}
+
+div#div1 {
+    background-color: #fff;
+    padding: 2rem;
+    grid-column: span 7;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+
+}
+
+#currentWeather {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    /* margin-top: 1rem; */
+
+}
+
+#currentWeather div {
+    /* display: grid; */
+    grid-template-columns: repeat(7, 1fr);
+    background-color: #fff;
+    padding: 1em;
+
+
+
+}
+
+.weather {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+}
+
+.createuser {
+    display: block;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 1rem;
+
+}
+
+.createuserinput {
+    display: block;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.createuserinput input,
+button {
+    display: block;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 1rem;
+}

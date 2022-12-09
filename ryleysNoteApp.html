@@ -1,0 +1,134 @@
+
+<body>
+    
+<h1>Ryleys Note App</h1>
+
+<div>
+<input type="text" id="date" placeholder="date">
+<input type="text-area" id="note" placeholder="note">
+<button onclick="createNote()">click here</button>
+</div>
+
+</body>
+
+<style>
+
+    html {
+        color: white;
+    }
+
+
+    body {
+        background-color: rgb(113, 129, 125);
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    div {
+        padding: 1rem;
+        background-color: antiquewhite;
+        
+    }
+
+    input {
+        display: block;
+        margin: auto;
+        margin-top: 1rem;
+        border: 1px white solid;
+    }
+
+    button {
+        display: block;
+        margin: auto;
+        margin-top: 1rem;
+    }
+
+    p {
+        background-color: rgb(137, 138, 132);
+        border: 1px rgb(113, 129, 125) solid;
+        border-radius: 5%;
+        padding: 1rem;
+        
+    }
+
+    #note {
+        padding: 1rem;
+    }
+    
+</style>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+
+<script>
+
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyBhtJHw_GYqY3AsJeWhkkQZqv0eg37XrXU",
+        authDomain: "ryleys-774b2.firebaseapp.com",
+        projectId: "ryleys-774b2",
+        storageBucket: "ryleys-774b2.appspot.com",
+        messagingSenderId: "275324397017",
+        appId: "1:275324397017:web:8533813df381c1a19c25c8",
+        measurementId: "G-1RV0E9Q15X"
+    };
+
+
+
+    //create
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore(); // assigning the firestore functionality to db variable
+
+    function createNote() {
+        let date = document.getElementById("date").value
+        let newNote = document.getElementById("note").value
+        
+
+
+        db.collection("ryleysnotes").doc().set({
+            noteContent: newNote,
+            date: date,
+           
+
+        })
+
+            .then(() => {
+                console.log("Document successfully written!");
+                getAllFromFireBase()
+            })
+            .catch((error) => {
+                console.error("Error writing document: ", error);
+            });
+
+    }
+
+
+
+    // read
+
+    function getAllFromFireBase(){
+    
+        let postNote = db.collection('ryleysnotes');
+        let postNewNote = postNote.get()
+        .then(dataReturn => {
+            dataReturn.forEach(notes => {
+                let content = document.createElement("p")
+                // console.log(notes.data())
+                let thisData = notes.data()
+                content.innerText += thisData.date  + " " + thisData.noteContent 
+                // debugger
+                    console.log(content)
+                document.body.appendChild(content)
+             
+            });
+        })
+        .catch(err => {
+            console.log('Error getting documents', err);
+        });
+        }
+    
+</script>

@@ -1,0 +1,28 @@
+<body>
+  <button onclick="kanyeRest()">Generate Quote?</button>
+  <div id="kanyesays"></div>
+</body>
+
+<script>
+
+  function kanyeRest() {
+      let url = "https://api.kanye.rest/"
+      let response = fetch(url);
+
+
+      fetch(url)
+
+      .then(response => response.json()
+  ).then((quotes) => {
+
+    //getting the data and looking for variable names
+  //   console.log(qoutes);
+    let currentQuote = quotes.quote
+    let element = document.createElement("p")
+   element.innerHTML = "The wise Kayne West once said: " + currentQuote 
+   document.getElementById("kanyesays").appendChild(element);
+
+     })
+}
+
+</script>

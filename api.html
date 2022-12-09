@@ -1,0 +1,55 @@
+<!-- api's mostly handle the read part of crud -->
+<!-- a url is an endpoint -->
+<!--  end points do stuff-->
+
+
+<!-- We interac with API by making requests to endpoints 
+http://mywebsite.com/create
+
+http://mywebsite.com/read 
+http://mywebsite.com/update
+http://mywebsite.com/delete
+
+
+http://api.marketstack.com/v1/eod
+? access_key = YOUR_ACCESS_KEY 
+& symbols = AAPL
+
+
+http://api.marketstack.com/v1/eod?access_key=7f57b03e875033aa5009c4d7463c73bc&symbols=AAPL -->
+
+<script>
+
+
+    let key = "?access_key=7f57b03e875033aa5009c4d7463c73bc&symbols=";
+    let symbol = "AAPL";
+    let url = "https://api.marketstack.com/v1/eod" + key + symbol;
+    
+    let response = fetch(url);
+    
+    fetch(url)
+       .then(response => response.json() // fetch must be designed as a javascript promise
+       
+     // response.text() // reads response returns text
+    //   response.json() // parse the json for you automatically
+    //   response.formData() // revisted 
+    //   response.blob()
+    //   response.arrayBuffer()
+
+        ).then((data) => {
+    //   console.log(data.data[0].symbol)
+      //console.log(data.data[0].open)
+      console.log(data)
+    //   document.getElementById("display")
+
+    })
+      
+      
+        .catch(
+    function(){
+      console.log("not found")
+    }
+    )
+    
+    
+    </script>
